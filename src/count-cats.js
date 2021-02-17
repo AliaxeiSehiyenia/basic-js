@@ -1,5 +1,3 @@
-/* const CustomError = require("../extensions/custom-error"); */
-
 module.exports = function countCats(matrix) {
   var number = 0;
   var ears = "^^";
