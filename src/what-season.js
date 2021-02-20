@@ -1,30 +1,28 @@
+const CustomError = require("../extensions/custom-error");
 module.exports = function getSeason(date) {
-  /* if (date instanceof Date) { */
-  if (date != null) {
-  if (date.getMonth() >= 0 && date.getMonth() <= 1) {
+  let error = "Unable to determine the time of year!"
+  if (!date) {
+    return error;
+  }
+  if (Date.prototype.isPrototypeOf(date)) {
+  let month = date.getUTCMonth();
+  if ((month >= 0 && month <= 1) || (month == 11)) {
   return 'winter';
   }
-  else if (date.getMonth() >= 2 && date.getMonth() <= 4) {
+  else if (month >= 2 && month <= 4) {
   return 'spring';
   }
-  else if (date.getMonth() >= 5 && date.getMonth() <= 7) {
+  else if (month >= 5 && month <= 7) {
   return 'summer';
   }
-  else if (date.getMonth() == 11) {
-  return 'winter';
-  }
-  else {
+  else if (month >= 8 && month <= 10 ) {
   return 'autumn';
   }
-}
-/* else if (!(date instanceof Date)) {
-  return 'THROWN';
-} */
-else {
-  return 'Unable to determine the time of year!';
-}
-  /* } */
-/* else {
-  expect(test).to.throw(error);;
-} */
+  else {
+    return error;
+  }
+  }
+  else {
+  throw new Error();
+  }
 };
