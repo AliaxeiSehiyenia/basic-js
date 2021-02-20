@@ -13,8 +13,7 @@ module.exports = function createDreamTeam(members) {
     }
 
     return arrLetters.sort().join("").toUpperCase();
-  } 
-  else {
+  } else {
     return false;
   }
 };
