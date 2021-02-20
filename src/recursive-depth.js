@@ -5,7 +5,7 @@ module.exports = class DepthCalculator {
      let count = 1;
      if (Array.isArray(arr[i])) {
        count += this.calculateDepth(arr[i]);
-       depth = Math.max(count.depth);
+       depth = Math.max(count, depth);
      }
    }
    return depth;
