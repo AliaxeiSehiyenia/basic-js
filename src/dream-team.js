@@ -1,10 +1,9 @@
 module.exports = function createDreamTeam(members) {
   if (Array.isArray(members)) {
     let arrLetters = []
-    const regexp = /\w/g //[A-Za-z0-9_]
     for (let i = 0; i < members.length; i++) {
       if (typeof members[i] === "string") {
-        const stringWithoutSpace = members[i].match(regexp) //без пробелов.
+        const stringWithoutSpace = members[i].trim() //без пробелов.
         arrLetters.push(stringWithoutSpace[0])
       }
     }
