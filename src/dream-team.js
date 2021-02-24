@@ -1,19 +1,19 @@
 module.exports = function createDreamTeam(members) {
   if (Array.isArray(members)) {
-    let arrLetters = [];
-    let regexp = /\w/g;
+    let arrLetters = []
+    const regexp = /\w/g // [A-Za-z0-9_]
     for (let i = 0; i < members.length; i++) {
       if (typeof members[i] === "string") {
-        let stringWithoutSpace = members[i].match(regexp);
-        arrLetters.push(stringWithoutSpace[0]);
+        const stringWithoutSpace = members[i].match(regexp) //без пробелов.
+        arrLetters.push(stringWithoutSpace[0])
       }
     }
     for (let k = 0; k < arrLetters.length; k++) {
-      arrLetters[k] = arrLetters[k].toUpperCase();
-    }
+      arrLetters[k] = arrLetters[k].toUpperCase()
+    } 
 
-    return arrLetters.sort().join("").toUpperCase();
+    return arrLetters.sort().join("") //sort() - сравнивает в соответствии с порядком в Unicode.
   } else {
-    return false;
+    return false
   }
-};
+}
