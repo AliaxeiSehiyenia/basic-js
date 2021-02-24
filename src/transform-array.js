@@ -5,8 +5,8 @@ module.exports = function transform(arr) {
   myArr = [];
   let iNext;
   for (let i = 0; i < arr.length; i++) {
-    let iPrev = i - 1;
-    let elemArr = arr[i];
+    const iPrev = i - 1;
+    const elemArr = arr[i];
     if (elemArr === "--discard-next") {
       iNext = i + 1;
       i++;
