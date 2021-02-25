@@ -5,6 +5,9 @@ module.exports = class DepthCalculator {
       let count = 1;
       if (Array.isArray(arr[i])) {
         count += this.calculateDepth(arr[i]);
+        /* на каждом элементе массива вызывается ркурсивно метод calculateDepth и count увеличивается.
+        затем если count больше depth, то depth присваивается заначение count. Если нет то depth и есть 
+        максимальная глубина массива  */
         depth = Math.max(count, depth);
       }
     }
