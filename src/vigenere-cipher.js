@@ -8,7 +8,7 @@ class VigenereCipheringMachine {
       throw new Error();
     }
 
-    let latinAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const latinAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let strUpper = message.toUpperCase();
     let keyUpper = key.toUpperCase();
     let result = "";
@@ -20,11 +20,11 @@ class VigenereCipheringMachine {
         position +=
           (latinAlphabet.indexOf(strUpper.split("")[i]) +
             latinAlphabet.indexOf(keyUpper.split("")[j])) %
-          26;
+          26; // вычисляет индекс(position) заначение которого из latinAlphabet записывается в result
         result += latinAlphabet.split("")[position];
         j >= keyUpper.length - 1 ? (j = 0) : j++;
       } else {
-        result += message.split("")[i];
+        result += message.split("")[i]; //добавляет пробелы из message
       }
     }
 
@@ -32,7 +32,7 @@ class VigenereCipheringMachine {
       return result.toUpperCase();
     } else {
       return result.split("").reverse().join("").toUpperCase();
-    }
+    } //если заначение undefuned или false переворачиваем строку
   }
 
   decrypt(encryptedMessage, key) {
@@ -40,7 +40,7 @@ class VigenereCipheringMachine {
       throw new Error();
     }
 
-    let latinAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const latinAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let strUpper = encryptedMessage.toUpperCase();
     let keyUpper = key.toUpperCase();
     let result = "";
@@ -53,11 +53,11 @@ class VigenereCipheringMachine {
           (latinAlphabet.indexOf(strUpper.split("")[i]) +
             26 -
             latinAlphabet.indexOf(keyUpper.split("")[j])) %
-          26;
+          26; // вычисляет индекс(position) заначение которого из latinAlphabet записывается в result
         result += latinAlphabet.split("")[position];
         j >= keyUpper.length - 1 ? (j = 0) : j++;
       } else {
-        result += encryptedMessage.split("")[i];
+        result += encryptedMessage.split("")[i];//добавляет пробелы из закодированной строки
       }
     }
 
@@ -65,7 +65,7 @@ class VigenereCipheringMachine {
       return result.toUpperCase();
     } else {
       return result.split("").reverse().join("").toUpperCase();
-    }
+    } //если заначение undefuned или false переворачиваем строку
   }
 }
 
