@@ -2,9 +2,9 @@ module.exports = function countCats(matrix) {
   let number = 0
   const ears = "^^"
 
-  function Search(ElementArr) {
-    for (let i = 0; i < ElementArr.length; i++) {
-      if (ElementArr[i] == ears) {
+  function Search(elementArrs) {
+    for (let elementArr of elementArrs) {
+      if (elementArr == ears) {
         number = number + 1
       }
     }
